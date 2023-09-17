@@ -79,12 +79,9 @@ select {
 }
 
 body {
-    /*min-height: 100vh;*/
-    /*margin: 0 auto;*/
-    /*padding: 0;*/
-
     background-color: #746e6e;
 }
+
 .box {
     display: flex;
     align-items: center;
@@ -111,32 +108,28 @@ body {
 .navigation {
     display: flex;
     bottom: 16px;
-
 }
 
-.bar {
+.bar span {
+    display: inline-block;
     height: 16px;
     width: 16px;
-    margin: 6px;
+    margin: 8px;
     cursor: pointer;
     opacity: .7;
     border-radius: 50%;
     transition: all .4s ease;
     background-color: cornflowerblue;
 }
+.bar {
+    cursor: pointer;
+}
 
-.bar:hover {
-    /*opacity: 1;*/
-    /*transform: scale(1.1);*/
+.bar:hover span {
     background-color: white;
 }
 
-.bar:active {
-
-}
-
 input[name='rad'] {
-    /*position: absolute;*/
     visibility: hidden;
     width: 0;
     height: 0;
@@ -159,7 +152,6 @@ input[name='rad'] {
     height: 100%;
 }
 
-
 .text {
     display: flex;
     flex-wrap: nowrap;
@@ -168,8 +160,6 @@ input[name='rad'] {
 }
 
 .none {
-    /*display: none;*/
-    /*visibility: hidden;*/
     display: flex;
     flex: 1 0 100%;
     transition: all .6s ease;
@@ -179,15 +169,19 @@ input[name='rad'] {
 #btn1:checked ~ .slider-images .display {
     margin-left: 0;
 }
+
 #btn2:checked ~ .slider-images .display {
     margin-left: -20%;
 }
+
 #btn3:checked ~ .slider-images .display {
     margin-left: -40%;
 }
+
 #btn4:checked ~ .slider-images .display {
     margin-left: -60%;
 }
+
 #btn5:checked ~ .slider-images .display {
     margin-left: -80%;
 }
@@ -196,42 +190,47 @@ input[name='rad'] {
 #btn1:checked ~ .bottom .text .tm {
     margin-left: 0;
 }
+
 #btn2:checked ~ .bottom .text .tm {
     margin-left: -100%;
 }
+
 #btn3:checked ~ .bottom .text .tm {
     margin-left: -200%;
 }
+
 #btn4:checked ~ .bottom .text .tm {
     margin-left: -300%;
 }
+
 #btn5:checked ~ .bottom .text .tm {
     margin-left: -400%;
 }
 
-#btn1:checked ~ .bottom label[for="btn1"],
-#btn2:checked ~ .bottom label[for="btn2"],
-#btn3:checked ~ .bottom label[for="btn3"],
-#btn4:checked ~ .bottom label[for="btn4"],
-#btn5:checked ~ .bottom label[for="btn5"]{
+#btn1:checked ~ .bottom label[for="btn1"] span,
+#btn2:checked ~ .bottom label[for="btn2"] span,
+#btn3:checked ~ .bottom label[for="btn3"] span,
+#btn4:checked ~ .bottom label[for="btn4"] span,
+#btn5:checked ~ .bottom label[for="btn5"] span {
     border: 2px solid cornflowerblue;
     background-color: transparent;
 }
-#btn1:checked ~ .bottom label[for="btn1"]:hover,
-#btn2:checked ~ .bottom label[for="btn2"]:hover,
-#btn3:checked ~ .bottom label[for="btn3"]:hover,
-#btn4:checked ~ .bottom label[for="btn4"]:hover,
-#btn5:checked ~ .bottom label[for="btn5"]:hover{
+
+#btn1:checked ~ .bottom label[for="btn1"]:hover span,
+#btn2:checked ~ .bottom label[for="btn2"]:hover span,
+#btn3:checked ~ .bottom label[for="btn3"]:hover span,
+#btn4:checked ~ .bottom label[for="btn4"]:hover span,
+#btn5:checked ~ .bottom label[for="btn5"]:hover span {
     border: 2px solid #ffffff;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
 
-    .bottom{
+    .bottom {
         flex-direction: column-reverse;
     }
 
- .navigation {
-     justify-content: center
- }
+    .navigation {
+        justify-content: center
+    }
 }
