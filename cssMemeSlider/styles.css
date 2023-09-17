@@ -1,0 +1,237 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul,
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+/*body {*/
+/*    min-height: 100vh;*/
+/*    scroll-behavior: smooth;*/
+/*    text-rendering: optimizeSpeed;*/
+/*    line-height: 1.5;*/
+/*    background-color: #0C0C0E;*/
+/*}*/
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body {
+    /*min-height: 100vh;*/
+    /*margin: 0 auto;*/
+    /*padding: 0;*/
+
+    background-color: #746e6e;
+}
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.slider-container {
+    max-width: 800px;
+    min-width: 320px;
+    overflow: hidden;
+    border: 10px solid #fff;
+    margin: auto auto;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    transition: all .6s ease;
+}
+
+
+.navigation {
+    display: flex;
+    bottom: 16px;
+
+}
+
+.bar {
+    height: 16px;
+    width: 16px;
+    margin: 6px;
+    cursor: pointer;
+    opacity: .7;
+    border-radius: 50%;
+    transition: all .4s ease;
+    background-color: cornflowerblue;
+}
+
+.bar:hover {
+    /*opacity: 1;*/
+    /*transform: scale(1.1);*/
+    background-color: white;
+}
+
+.bar:active {
+
+}
+
+input[name='rad'] {
+    /*position: absolute;*/
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+.slider-images {
+    width: 500%;
+    height: 100%;
+    display: flex;
+}
+
+.slide {
+    width: 20%;
+    transition: all .6s ease;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.text {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    align-items: center;
+}
+
+.none {
+    /*display: none;*/
+    /*visibility: hidden;*/
+    display: flex;
+    flex: 1 0 100%;
+    transition: all .6s ease;
+}
+
+
+#btn1:checked ~ .slider-images .display {
+    margin-left: 0;
+}
+#btn2:checked ~ .slider-images .display {
+    margin-left: -20%;
+}
+#btn3:checked ~ .slider-images .display {
+    margin-left: -40%;
+}
+#btn4:checked ~ .slider-images .display {
+    margin-left: -60%;
+}
+#btn5:checked ~ .slider-images .display {
+    margin-left: -80%;
+}
+
+
+#btn1:checked ~ .bottom .text .tm {
+    margin-left: 0;
+}
+#btn2:checked ~ .bottom .text .tm {
+    margin-left: -100%;
+}
+#btn3:checked ~ .bottom .text .tm {
+    margin-left: -200%;
+}
+#btn4:checked ~ .bottom .text .tm {
+    margin-left: -300%;
+}
+#btn5:checked ~ .bottom .text .tm {
+    margin-left: -400%;
+}
+
+#btn1:checked ~ .bottom label[for="btn1"],
+#btn2:checked ~ .bottom label[for="btn2"],
+#btn3:checked ~ .bottom label[for="btn3"],
+#btn4:checked ~ .bottom label[for="btn4"],
+#btn5:checked ~ .bottom label[for="btn5"]{
+    border: 2px solid cornflowerblue;
+    background-color: transparent;
+}
+#btn1:checked ~ .bottom label[for="btn1"]:hover,
+#btn2:checked ~ .bottom label[for="btn2"]:hover,
+#btn3:checked ~ .bottom label[for="btn3"]:hover,
+#btn4:checked ~ .bottom label[for="btn4"]:hover,
+#btn5:checked ~ .bottom label[for="btn5"]:hover{
+    border: 2px solid #ffffff;
+}
+
+@media (max-width: 768px){
+
+    .bottom{
+        flex-direction: column-reverse;
+    }
+
+ .navigation {
+     justify-content: center
+ }
+}
