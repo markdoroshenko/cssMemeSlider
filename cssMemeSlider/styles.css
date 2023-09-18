@@ -82,6 +82,14 @@ body {
     background-color: #746e6e;
 }
 
+.prRef {
+    font-size: 20px;
+    color: white;
+}
+.prRef a{
+    color: #a5a529
+}
+
 .box {
     display: flex;
     align-items: center;
